@@ -1,7 +1,6 @@
 import './style.css'
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader, TTFLoader } from 'three/examples/jsm/Addons.js';
 
@@ -78,10 +77,6 @@ renderer.setSize(sizes.width, sizes.height);
 document.body.appendChild(renderer.domElement);
 renderer.render(scene, camera);
 
-// Controls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-
 // Calling F(x)
 animate();
 handleResize();
@@ -89,7 +84,6 @@ window.addEventListener('resize', handleResize);
 
 // Imp F(x)
 function animate() {
-  controls.update();
 
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.01;
